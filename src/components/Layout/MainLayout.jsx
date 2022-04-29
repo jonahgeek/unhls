@@ -1,4 +1,3 @@
-import logo from '@/assets/logo.svg';
 import { useAuth } from '@/lib/auth';
 // import { useAuthorization, ROLES } from '@/lib/authorization';
 import { Dialog, Menu, Transition } from '@headlessui/react';
