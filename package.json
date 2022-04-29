@@ -2,6 +2,10 @@
   "name": "modular-react-starter",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Jonathan Mwebaze",
+    "email": "jonahgeek@gmail.com"
+  },
   "dependencies": {
     "@craco/craco": "^6.1.2",
     "@headlessui/react": "^1.2.0",

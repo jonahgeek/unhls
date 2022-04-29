@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 
 export const Head = ({ title = '', description = '' }) => {
   return (
-    <Helmet title={title ? `${title} | React Starter` : undefined} defaultTitle="React Starter">
+    <Helmet title={title ? `${title} | UNHLS` : undefined} defaultTitle="UNHLS">
       <meta name="description" content={description} />
     </Helmet>
   );
