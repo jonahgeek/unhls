@@ -22,41 +22,12 @@ export const authHandlers = [
         throw new Error('The user already exists');
       }
 
-      let teamId;
-      let role;
-
-      if (!userObject.teamId) {
-        const team = db.team.create({
-          id: nanoid(),
-          name: userObject.teamName ?? `${userObject.firstName} Team`,
-          createdAt: Date.now(),
-        });
-        persistDb('team');
-        teamId = team.id;
-        role = 'ADMIN';
-      } else {
-        const existingTeam = db.team.findFirst({
-          where: {
-            id: {
-              equals: userObject.teamId,
-            },
-          },
-        });
-
-        if (!existingTeam) {
-          throw new Error('The team you are trying to join does not exist!');
-        }
-        teamId = userObject.teamId;
-        role = 'USER';
-      }
-
       db.user.create({
         ...userObject,
         id: nanoid(),
         createdAt: Date.now(),
-        role,
+        role: 'ADMIN',
         password: hash(userObject.password),
-        teamId,
       });
 
       persistDb('user');

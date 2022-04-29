@@ -4,10 +4,7 @@ import { lazyImport } from '@/utils/lazyImport';
 import { Suspense } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 
-const { DiscussionsRoutes } = lazyImport(
-  () => import('@/features/discussions'),
-  'DiscussionsRoutes'
-);
+const { PatientsRoutes } = lazyImport(() => import('@/features/patients'), 'PatientsRoutes');
 const { Dashboard } = lazyImport(() => import('@/features/misc'), 'Dashboard');
 const { Profile } = lazyImport(() => import('@/features/users'), 'Profile');
 const { Users } = lazyImport(() => import('@/features/users'), 'Users');
@@ -33,7 +30,7 @@ export const protectedRoutes = [
     path: '/app',
     element: <App />,
     children: [
-      { path: '/discussions/*', element: <DiscussionsRoutes /> },
+      { path: '/patients/*', element: <PatientsRoutes /> },
       { path: '/users', element: <Users /> },
       { path: '/profile', element: <Profile /> },
       { path: '/', element: <Dashboard /> },

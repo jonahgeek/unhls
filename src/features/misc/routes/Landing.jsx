@@ -1,4 +1,3 @@
-import logo from '@/assets/logo.svg';
 import { Button } from '@/components/Elements';
 import { Head } from '@/components/Head';
 import { useAuth } from '@/lib/auth';
@@ -22,12 +21,9 @@ export const Landing = () => {
       <div className="bg-white dark:bg-gray-900 h-[100vh] flex items-center">
         <div className="max-w-7xl mx-auto text-center py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
           <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-            <span className="block">React Modular Starter</span>
+            <span className="block">Uganda National Health Laboratory Services (UNHLS)</span>
           </h2>
-          <img src={logo} alt="react" />
-          <p className="dark:text-white">
-            Showcasing Best Practices For Building React Applications
-          </p>
+
           <div className="mt-8 flex justify-center">
             <div className="inline-flex rounded-md shadow">
               <Button
@@ -53,11 +49,7 @@ export const Landing = () => {
               </Button>
             </div>
             <div className="ml-3 inline-flex">
-              <a
-                href="https://github.com/jasttech/modular-react-starter"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href="https://github.com/jonahgeek/unhls" target="_blank" rel="noreferrer">
                 <Button
                   variant="inverse"
                   startIcon={

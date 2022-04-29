@@ -1,30 +1,27 @@
 import logo from '@/assets/logo.svg';
 import { useAuth } from '@/lib/auth';
-import { useAuthorization, ROLES } from '@/lib/authorization';
+// import { useAuthorization, ROLES } from '@/lib/authorization';
 import { Dialog, Menu, Transition } from '@headlessui/react';
-import {
-  UserIcon,
-  FolderIcon,
-  HomeIcon,
-  MenuAlt2Icon,
-  UsersIcon,
-  XIcon,
-} from '@heroicons/react/outline';
+import { UserIcon, HomeIcon, MenuAlt2Icon, XIcon } from '@heroicons/react/outline';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import * as React from 'react';
+import { Users, Tool, Calendar, User } from 'react-feather';
 import { NavLink, Link } from 'react-router-dom';
 
 const SideNavigation = () => {
-  const { checkAccess } = useAuthorization();
+  // const { checkAccess } = useAuthorization();
   const navigation = [
-    { name: 'Dashboard', to: '.', icon: HomeIcon },
-    { name: 'Discussions', to: './discussions', icon: FolderIcon },
-    checkAccess({ allowedRoles: [ROLES.ADMIN] }) && {
-      name: 'Users',
-      to: './users',
-      icon: UsersIcon,
-    },
+    { name: 'Overview', to: '.', icon: HomeIcon },
+    { name: 'Patients', to: './patients', icon: Users },
+    { name: 'Training & Mentorship', to: './training_and_mentorship', icon: User },
+    { name: 'Equipment', to: './equipment', icon: Tool },
+    { name: 'Calendar', to: './calendar', icon: Calendar },
+    // checkAccess({ allowedRoles: [ROLES.ADMIN] }) && {
+    //   name: 'Users',
+    //   to: './users',
+    //   icon: Users,
+    // },
   ].filter(Boolean);
 
   return (
@@ -208,8 +205,8 @@ const Sidebar = () => {
 const Logo = () => {
   return (
     <Link className="flex items-center text-white" to=".">
-      <img className="h-8 w-auto" src={logo} alt="Workflow" />
-      <span className="text-xl text-white font-semibold">RMS</span>
+      {/* <img className="h-8 w-auto" src={logo} alt="Workflow" /> */}
+      <span className="text-xl text-white font-bold">UNHLS</span>
     </Link>
   );
 };

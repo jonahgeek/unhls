@@ -1,14 +1,14 @@
 import { Table, Spinner, Link } from '@/components/Elements';
 import { formatDate } from '@/utils/format';
 
-import { useDiscussions } from '../api/getDiscussions';
+import { usePatients } from '../api/getPatients';
 
-import { DeleteDiscussion } from './DeleteDiscussion';
+import { DeletePatient } from './DeletePatient';
 
-export const DiscussionsList = () => {
-  const discussionsQuery = useDiscussions();
+export const PatientsList = () => {
+  const patientsQuery = usePatients();
 
-  if (discussionsQuery.isLoading) {
+  if (patientsQuery.isLoading) {
     return (
       <div className="w-full h-48 flex justify-center items-center">
         <Spinner size="lg" />
@@ -16,18 +16,26 @@ export const DiscussionsList = () => {
     );
   }
 
-  if (!discussionsQuery.data) return null;
+  if (!patientsQuery.data) return null;
 
   return (
     <Table
-      data={discussionsQuery.data}
+      data={patientsQuery.data}
       columns={[
         {
-          title: 'Title',
-          field: 'title',
+          title: 'Name',
+          field: 'patientName',
         },
         {
-          title: 'Created At',
+          title: 'Facility',
+          field: 'facilityName',
+        },
+        {
+          title: 'District',
+          field: 'district',
+        },
+        {
+          title: 'Registered',
           field: 'createdAt',
           Cell({ entry: { createdAt } }) {
             return <span>{formatDate(createdAt)}</span>;
@@ -44,7 +52,7 @@ export const DiscussionsList = () => {
           title: '',
           field: 'id',
           Cell({ entry: { id } }) {
-            return <DeleteDiscussion id={id} />;
+            return <DeletePatient id={id} />;
           },
         },
       ]}
